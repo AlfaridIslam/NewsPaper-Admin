@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connect from './database/connection';
 import bodyParser from 'body-parser';
+import cors from 'cors'; // Import CORS
 import sectionsRoutes from './routes/sections.routes';
 import searchRoutes from './routes/search.routes';
 import adminRoutes from './routes/admin.routes';
@@ -17,6 +18,7 @@ connect();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors()); // Use CORS middleware
 
 // Routes
 app.use('/api/sections', sectionsRoutes);
